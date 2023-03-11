@@ -24,15 +24,15 @@
       <nav class="header-nav">
         <a href="./index.html" class="header-logo">Web<span>Studio</span></a>
         <ul class="header-ul">
-          <li><a class="header-item" href="./index.html">Studio</a></li>
-          <li><a class="header-item" href="./portfolio.html">Portfolio</a></li>
-          <li><a class="header-item" href="">Contacts</a></li>
+          <li class="header-item"><a class="header-link active link" href="./index.html">Studio</a></li>
+          <li class="header-item"><a class="header-link link active" href="./portfolio.html">Portfolio</a></li>
+          <li class="header-item"><a class="header-link link active" href="">Contacts</a></li>
         </ul>
       </nav>
       <address class="address">
         <ul class="address-list">
-          <li><a class="address-mail" href="mailto:info@devstudio.com">info@devstudio.com</a></li>
-          <li><a class="address-tel" href="tel:+110001111111">+11 (000) 111-11-11</a></li>
+          <li class="address-item"><a class="address-mail" href="mailto:info@devstudio.com">info@devstudio.com</a></li>
+          <li class="address-item"><a class="address-tel" href="tel:+110001111111">+11 (000) 111-11-11</a></li>
         </ul>
       </address>
     </div>
@@ -43,7 +43,7 @@
     <section class="hero">
       <div class="container hero-container">
         <h1 class="hero-title">Effective Solutions for Your Business</h1>
-        <button type="button" class="hero-button">Order Service</button>
+        <button type="button" data-modal-open class="hero-button">Order Service</button>
       </div>
 
     </section>
@@ -378,6 +378,17 @@
 
     </div>
   </footer>
+  <div class="backdrop is-hidden" data-modal>
+    <div class="modal">
+      <button class="x-button" data-modal-close type="button">
+        <img src="./images/x-sign.svg" alt="x-sign" width="8" height="8">
+      </button>
+      <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Deserunt pariatur placeat, eum tempora sapiente nihil
+        mollitia, natus error est fugit inventore itaque vero! Itaque quam, provident vel quaerat in nam.</p>
+
+    </div>
+  </div>
+  <script src="./js/modal.js"></script>
 </body>
 
 </html>

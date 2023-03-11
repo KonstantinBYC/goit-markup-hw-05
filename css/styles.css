@@ -96,14 +96,30 @@ img {
 .header-logo > span {
   color: var(--secondary-title-color);
 }
-.header-item {
+.header-link {
   font-family: 'Roboto';
   font-weight: 500;
   font-size: 16px;
   line-height: 1.5;
   letter-spacing: 0.02em;
   color: var(--secondary-title-color);
+  padding-bottom: 4px;
+  position: relative;
+  transition: color 0.35s linear;
 }
+
+.header-link:active::after {
+  content: '';
+  width: 100%;
+  height: 4px;
+  border-radius: 2px;
+  background-color: var(--pressed-state-color);
+
+  position: absolute;
+  left: 0px;
+  bottom: -24px;
+}
+
 address {
   font-size: 16px;
   font-weight: 400;
@@ -122,14 +138,15 @@ address {
 .address-tel {
   color: var(--secondary-title-color);
 }
-.header-item:hover,
-.header-item:focus,
+.header-link:hover,
+.header-link:focus,
 .address-mail:hover,
 .address-mail:focus,
 .address-tel:hover,
 .address-tel:focus {
   color: var(--pressed-state-color);
 }
+
 /* -----------------------------------hero-------------------------- */
 .hero {
   max-width: 1440px;
@@ -183,7 +200,54 @@ address {
 .header-button:hover,
 .header-button:focus {
   background-color: var(--pressed-state-color);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
 }
+.backdrop {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(46, 47, 66, 0.4);
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: opacity 0.35s linear, visibility 0.35s linear;
+}
+.modal {
+  width: 408px;
+  height: 576px;
+  background-color: #fcfcfc;
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 1px 3px rgba(0, 0, 0, 0.12),
+    0px 2px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  padding: 24px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1);
+  transition: opacity 0.35s linear, visibility 0.35s linear;
+  overflow: auto;
+}
+.x-button {
+  display: block;
+  margin-left: auto;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  color: #2e2f42;
+  background-color: var(--accent-color);
+  padding: 8px;
+  cursor: pointer;
+}
+
+.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+.backdrop.is-hidden .modal {
+  transform: translate(-50%, -50%) scale(0);
+}
+
 /* ----------------Adv-------------------------- */
 .advan-list {
   display: flex;
@@ -348,6 +412,7 @@ address {
   height: 40px;
   background-color: #4d5ae5;
   border-radius: 50%;
+  transition: color 0.35s linear, background 0.3 linear;
 }
 .team-social-item {
 }
@@ -438,6 +503,7 @@ address {
   background-color: rgba(255, 255, 255, 0.1);
   opacity: 0.9;
   border-radius: 50%;
+  transition: color 0.35s linear, background 0.3 linear;
 }
 .social-item {
 }
@@ -524,9 +590,43 @@ address {
   padding: 0;
   margin-top: 8px;
 }
-.portfolio-anc {
-  display: block;
+
+.pf-img {
 }
+
+.pf-text-overlay {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0.02em;
+
+  width: 100%;
+  height: 100%;
+  background-color: var(--primary-brand-color);
+
+  color: var(--light-color);
+  padding: 40px 32px 40px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translateX(-100%);
+  transition: transform 0.35s linear;
+  overflow: auto;
+}
+.pf-top-wrap:hover .pf-text-overlay {
+  visibility: visible;
+  transform: translateX(0);
+}
+
+.pf-top-wrap {
+  position: relative;
+  overflow: hidden;
+}
+.portfolio-anc {
+}
+
 .portfolio-anc:hover,
 .portfolio-anc:focus {
   box-shadow: 0px 1px 6px rgba(46, 47, 66, 0.08),
